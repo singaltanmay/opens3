@@ -1,7 +1,10 @@
 package com.tanamaysingal.opens3.api;
 
+import com.tanamaysingal.opens3.meta.MetadataService;
+import com.tanamaysingal.opens3.models.ObjectMetadata;
 import com.tanamaysingal.opens3.store.StorageService;
 import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,12 +22,12 @@ public class OpenS3Controller {
   @Autowired
   private StorageService storageService;
 
+  @Autowired
+  private MetadataService metadataService;
+
   @GetMapping("/")
-  public String listUploadedFiles() throws IOException {
-
-    model.addAttribute("files", storageService.loadAll().map(path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString()).build().toUri().toString()).collect(Collectors.toList()));
-
-    return "uploadForm";
+  public List<ObjectMetadata> listUploadedFiles() throws IOException {
+    return metadataService.getAllFiles();
   }
 
   @PostMapping("/fs")

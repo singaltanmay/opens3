@@ -8,8 +8,10 @@ import java.nio.file.Files;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+@Service
 public class FilesystemStorageService implements StorageService {
 
   @Value("${opens3.storage.path}")
@@ -27,7 +29,7 @@ public class FilesystemStorageService implements StorageService {
     return null;
   }
 
-  private String getFilePath(MultipartFile file) {
+  public String getFilePath(MultipartFile file) {
     return drivePath + (drivePath.endsWith("/") ? "" : "/") + file.getOriginalFilename();
   }
 
