@@ -15,22 +15,28 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class OpenS3Controller {
-  @Autowired
-  private StorageService service;
 
-  @PostMapping("/fileSystem")
-  public ResponseEntity<?> uploadImageToFIleSystem(@RequestParam("image") MultipartFile file) throws IOException {
-    String uploadImage = service.uploadImageToFileSystem(file);
-    return ResponseEntity.status(HttpStatus.OK)
-        .body(uploadImage);
+  @Autowired
+  private StorageService storageService;
+
+  @GetMapping("/")
+  public String listUploadedFiles() throws IOException {
+
+    model.addAttribute("files", storageService.loadAll().map(path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString()).build().toUri().toString()).collect(Collectors.toList()));
+
+    return "uploadForm";
   }
 
-  @GetMapping("/fileSystem/{fileName}")
+  @PostMapping("/fs")
+  public ResponseEntity<?> uploadImageToFIleSystem(@RequestParam("file") MultipartFile file) throws IOException {
+    String uploadImage = storageService.uploadImageToFileSystem(file);
+    return ResponseEntity.status(HttpStatus.OK).body(uploadImage);
+  }
+
+  @GetMapping("/fs/{fileName}")
   public ResponseEntity<?> downloadImageFromFileSystem(@PathVariable String fileName) throws IOException {
-    byte[] imageData=service.downloadImageFromFileSystem(fileName);
-    return ResponseEntity.status(HttpStatus.OK)
-        .contentType(MediaType.valueOf("image/png"))
-        .body(imageData);
+    byte[] imageData = storageService.downloadImageFromFileSystem(fileName);
+    return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/png")).body(imageData);
 
   }
 
