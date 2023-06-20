@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,20 +25,23 @@ public class OpenS3Controller {
   private MetadataService metadataService;
 
   @GetMapping("/")
-  public List<ObjectMetadata> listUploadedFiles() throws IOException {
-    return metadataService.getAllFiles();
+  public List<ObjectMetadata> listObjects() throws IOException {
+    return metadataService.listObjects();
   }
 
-  @PostMapping("/fs")
-  public ResponseEntity<?> uploadImageToFIleSystem(@RequestParam("file") MultipartFile file) throws IOException {
+  @PostMapping("/object")
+  public ResponseEntity<?> store(@RequestParam("file") MultipartFile file) throws IOException {
     String uploadImage = storageService.uploadImageToFileSystem(file);
     return ResponseEntity.status(HttpStatus.OK).body(uploadImage);
   }
 
-  @GetMapping("/fs/{fileName}")
-  public ResponseEntity<?> downloadImageFromFileSystem(@PathVariable String fileName) throws IOException {
-    byte[] imageData = storageService.downloadImageFromFileSystem(fileName);
-    return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/png")).body(imageData);
+  @GetMapping("/object/{fileName}")
+  public ResponseEntity<?> fetch(@PathVariable String fileName) throws IOException {
+    byte[] object = storageService.downloadImageFromFileSystem(fileName);
+    if (object == null || object.length == 0) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    return ResponseEntity.status(HttpStatus.OK).body(object);
 
   }
 

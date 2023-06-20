@@ -21,7 +21,7 @@ public class FilesystemStorageService implements StorageService {
 
   public String uploadImageToFileSystem(MultipartFile file) throws IOException {
     String filePath = getFilePath(file);
-    ObjectMetadata fileData = metadataService.store(ObjectMetadata.builder().filePath(filePath).objkey(file.getOriginalFilename()).type(file.getContentType()).build());
+    ObjectMetadata fileData = metadataService.save(ObjectMetadata.builder().filePath(filePath).objkey(file.getOriginalFilename()).type(file.getContentType()).build());
     file.transferTo(new File(filePath));
     if (fileData != null) {
       return "file uploaded successfully : " + filePath;
@@ -33,10 +33,15 @@ public class FilesystemStorageService implements StorageService {
     return drivePath + (drivePath.endsWith("/") ? "" : "/") + file.getOriginalFilename();
   }
 
-  public byte[] downloadImageFromFileSystem(String fileName) throws IOException {
-    Optional<ObjectMetadata> fileData = metadataService.findByName(fileName);
+  public byte[] downloadImageFromFileSystem(String fileName) {
+    Optional<ObjectMetadata> fileData = metadataService.findByKey(fileName);
     String filePath = fileData.get().getFilePath();
-    byte[] images = Files.readAllBytes(new File(filePath).toPath());
+    byte[] images = new byte[0];
+    try {
+      images = Files.readAllBytes(new File(filePath).toPath());
+    } catch (IOException e) {
+      return null;
+    }
     return images;
   }
 

@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05775e9f-e6f3-45cc-b6e7-301fbdee2701" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/api/OpenS3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/api/OpenS3Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/FilesystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/FilesystemStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/StorageService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

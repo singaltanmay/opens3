@@ -12,15 +12,15 @@ public class MetadataService {
   @Autowired
   private MetadataRepository metadataRepository;
 
-  public ObjectMetadata store(ObjectMetadata metadata) {
+  public ObjectMetadata save(ObjectMetadata metadata) {
     return metadataRepository.save(metadata);
   }
 
-  public List<ObjectMetadata> getAllFiles() {
+  public List<ObjectMetadata> listObjects() {
     return metadataRepository.findAll();
   }
 
-  public Optional<ObjectMetadata> findByName(String fileName) {
-    return metadataRepository.findByObjkey(fileName);
+  public Optional<ObjectMetadata> findByKey(String key) {
+    return metadataRepository.findByObjkey(key);
   }
 }
