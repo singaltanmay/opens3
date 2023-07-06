@@ -1,8 +1,8 @@
-package com.tanamaysingal.opens3.api;
+package com.tanmaysingal.opens3.api;
 
-import com.tanamaysingal.opens3.meta.MetadataService;
-import com.tanamaysingal.opens3.models.ObjectMetadata;
-import com.tanamaysingal.opens3.store.StorageService;
+import com.tanmaysingal.opens3.meta.MetadataService;
+import com.tanmaysingal.opens3.models.ObjectMetadata;
+import com.tanmaysingal.opens3.store.StorageService;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +31,13 @@ public class OpenS3Controller {
 
   @PostMapping("/object")
   public ResponseEntity<?> store(@RequestParam("file") MultipartFile file) throws IOException {
-    String uploadImage = storageService.uploadImageToFileSystem(file);
-    return ResponseEntity.status(HttpStatus.OK).body(uploadImage);
+    storageService.store(file);
+    return ResponseEntity.ok().build();
   }
 
-  @GetMapping("/object/{fileName}")
-  public ResponseEntity<?> fetch(@PathVariable String fileName) throws IOException {
-    byte[] object = storageService.downloadImageFromFileSystem(fileName);
+  @GetMapping("/object/{key}")
+  public ResponseEntity<?> fetch(@PathVariable String key) throws IOException {
+    byte[] object = storageService.fetch(key);
     if (object == null || object.length == 0) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }

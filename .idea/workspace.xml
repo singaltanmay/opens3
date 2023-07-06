@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05775e9f-e6f3-45cc-b6e7-301fbdee2701" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/api/OpenS3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/api/OpenS3Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/FilesystemStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/FilesystemStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/store/NodeStorageApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/store/NodeStorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/IMG_20210221_133920_Original.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Tanmay Singal - Resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/OpenS3Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/OpenS3Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/api/OpenS3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/api/OpenS3Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/meta/MetadataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/meta/MetadataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/meta/MetadataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/models/ObjectMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/models/ObjectMetadata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/FilesystemStorageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tanamaysingal/opens3/store/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tanmaysingal/opens3/store/StorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -64,6 +75,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tanmay/Documents/opens3-storage-node/pom.xml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,7 +93,21 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.OpenS3Application (1)">
+    <configuration name="OpenS3Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="opens3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tanmaysingal.opens3.OpenS3Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OpenS3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="opens3" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tanamaysingal.opens3.OpenS3Application" />
@@ -112,6 +138,7 @@
       <workItem from="1686755554821" duration="920000" />
       <workItem from="1686807571551" duration="11045000" />
       <workItem from="1687224138728" duration="707000" />
+      <workItem from="1687918340299" duration="5827000" />
     </task>
     <servers />
   </component>

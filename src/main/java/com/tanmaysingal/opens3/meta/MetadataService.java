@@ -1,6 +1,6 @@
-package com.tanamaysingal.opens3.meta;
+package com.tanmaysingal.opens3.meta;
 
-import com.tanamaysingal.opens3.models.ObjectMetadata;
+import com.tanmaysingal.opens3.models.ObjectMetadata;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

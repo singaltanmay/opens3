@@ -1,11 +1,10 @@
-package com.tanamaysingal.opens3.models;
+package com.tanmaysingal.opens3.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import java.util.Objects;
-import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,9 +35,6 @@ public class ObjectMetadata {
   private String type;
   // Size in Bytes
   private Long size;
-  // TODO: Replace with node-level storage controller
-  // File path on disk
-  private String filePath;
 
   @Override
   public boolean equals(Object o) {
